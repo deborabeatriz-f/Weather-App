@@ -1,0 +1,176 @@
+body {
+  margin: 0 auto;
+  padding: 5px 10px;
+}
+
+h1 {
+  color: rgb(84, 82, 87);
+  font-family: "Amiri", serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
+h4 {
+  color: #737781;
+  font-family: "Amiri", serif;
+  font-style: italic;
+  font-size: 24px;
+}
+
+h6 {
+  position: absolute;
+  right: 150px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#weather-app {
+  color: rgb(62, 60, 65);
+  font-family: "Newsreader", serif;
+  margin: 10px 0px;
+  box-shadow: 0px 15px 15px 0px rgba(100, 100, 100, 0.3);
+  background: linear-gradient(to bottom, #bbd6f8 0%, #fefefe 100%);
+}
+
+#citySearch {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 6px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+#search {
+  color: rgb(84, 82, 87);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+#search:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#locationButton {
+  color: rgb(84, 82, 87);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+#locationButton:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#theTemperature {
+  display: inline;
+  color: rgb(84, 82, 87);
+  font-family: "Amiri", serif;
+  font-weight: bold;
+  font-size: 46px;
+}
+
+#theDegree {
+  display: inline;
+  color: rgb(84, 82, 87);
+  font-family: "Amiri", serif;
+  font-weight: bold;
+  font-size: 26px;
+  position: relative;
+  top: -15px;
+}
+
+#celciusTemp {
+  text-decoration: none;
+  cursor: default;
+}
+
+#fahrenheitTemp {
+  text-decoration: none;
+  cursor: default;
+}
+
+#forecast {
+  text-transform: capitalize;
+}
+
+#tempImg {
+  width: 70px;
+}
+
+#github {
+  width: 45px;
+}
+
+#linkedin {
+  width: 45px;
+}
+
+.active {
+  color: rgb(84, 82, 87);
+}
+
+.card-body {
+  margin-bottom: 10px;
+}
+
+.infos {
+  color: rgb(116, 115, 117);
+  font-family: "Cutive Mono", monospace;
+  font-weight: bold;
+}
+
+.first-card {
+  text-align: center;
+  color: #f99800;
+  font-family: "Newsreader", serif;
+  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
+}
+
+.second-card {
+  text-align: center;
+  color: #9096a1;
+  font-family: "Newsreader", serif;
+  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
+}
+
+.third-card {
+  text-align: center;
+  color: #9096a1;
+  font-family: "Newsreader", serif;
+  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
+}
+
+.forth-card {
+  text-align: center;
+  color: #9096a1;
+  font-family: "Newsreader", serif;
+  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
+}
+
+.fifth-card {
+  text-align: center;
+  color: #9096a1;
+  font-family: "Newsreader", serif;
+  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
+}
+
+.sixth-card {
+  text-align: center;
+  color: #9096a1;
+  font-family: "Newsreader", serif;
+  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
+}
