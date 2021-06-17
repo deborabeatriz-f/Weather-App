@@ -11,9 +11,12 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-  <!--GOOGLE FONTS-->
-   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -26,132 +29,76 @@
       href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&display=swap"
       rel="stylesheet"
     />
-<!-- AXIOS -->
+    <!-- AXIOS -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script
       src="https://kit.fontawesome.com/26847e6c76.js"
       crossorigin="anonymous"
     ></script>
-<!-- CSS link-->
+    <!-- CSS link-->
     <link rel="stylesheet" href="./css/style.css" />
 
-    <link rel="shotcut icon" href="https://img.icons8.com/color/48/000000/rainbow--v1.png">
+    <link
+      rel="shotcut icon"
+      href="https://img.icons8.com/color/48/000000/rainbow--v1.png"
+    />
     <title>Weather App</title>
   </head>
 
   <!-- PAGE CONTENT-->
   <body>
-      <div class="container">
+    <div class="container">
       <div class="card main-card" id="weather-app">
         <div class="card-body">
           <!-- MAIN: WEATHER OF THE DAY -->
-          <h4>Search Weather Forecast </h4>
-      <form class="my-4" id="mainSearch">
-        <input 
-        id="citySearch" 
-        type="text" 
-        placeholder="Search City" />
-        <input 
-        id="search" 
-        type="submit" 
-        value="Search" />
-        <span><button id="locationButton">Current Location</button></span>
-      </form>
-      <div class="row">
-        <div class="col">
-          <h1 id="theCity"></h1>
-        </div>
-        <div class="col">
-          <ul class="infos">          
-            <li id="date"> </li> 
-            <li id="forecast"> </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <div class="clearfix">
-            <h2 class="float-left">
-              <img id="tempImg" src="">
-              <span id="theTemperature"> </span>
-              <span id="theDegree">
-              <small> <a href="#" id="celciusTemp" class="active">°C</a> | <a href="#" id="fahrenheitTemp">°F</a> </small>  
-              </span>
-            </h2>
+          <h4>Search Weather Forecast</h4>
+          <form class="my-4" id="mainSearch">
+            <input id="citySearch" type="text" placeholder="Search City" />
+            <input id="search" type="submit" value="Search" />
+          </form>
+          <div class="row">
+            <div class="col">
+              <h1 id="theCity"></h1>
+            </div>
+            <div class="col">
+              <ul class="infos">
+                <li id="date"></li>
+                <li id="forecast"></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <ul class="infos">
-            <li> Humidity: <span id="humidity"></span>% </li>
-            <li> Wind: <span id="wind"> </span>km/h </li>
-          </ul>
-        </div>
-      </div>
-      <br />
-      <!-- WEATHER FORECAST NEXT DAYS -->
-      <div class="row">
-        <div class="col nextDays">
-      <div class="card first-card bg-transparent">
-        <div class="card-body">
-          <h5 class="card-title">Sunday</h5>
-          <p class="card-text"><strong>22°C</strong>/15°C</p>
-          <img src="https://img.icons8.com/color/48/000000/partly-cloudy-rain--v2.png"/>
-        </div>
-        </div>
-        </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="clearfix">
+                <h2 class="float-left">
+                  <img id="tempImg" src="" />
+                  <span id="theTemperature"> </span>
+                  <span id="theDegree">
+                    <small>
+                      <a href="#" id="celciusTemp" class="active">°C</a> |
+                      <a href="#" id="fahrenheitTemp">°F</a>
+                    </small>
+                  </span>
+                </h2>
+              </div>
+            </div>
+            <div class="col">
+              <ul class="infos">
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"> </span>km/h</li>
+              </ul>
+            </div>
+          </div>
+          <br />
+         <!-- WEATHER FORECAST NEXT DAYS -->
      
-        <div class="col">
-      <div class="card second-card bg-transparent">
-        <div class="card-body">
-          <h5 class="card-title">Monday</h5>
-          <p class="card-text"><strong>22°C</strong>/13°C</p>
-          <img src="https://img.icons8.com/color/50/000000/partly-cloudy-day--v2.png"/>
-        </div>
-      </div>
-        </div>
-
-        <div class="col">
-      <div class="card third-card bg-transparent">
-        <div class="card-body">
-          <h5 class="card-title">Tuesday</h5>
-          <p class="card-text"><strong>23°C</strong>/11°C</p>
-          <img src="https://img.icons8.com/color/50/000000/sun--v2.png"/>
-        </div>
-      </div>
-        </div>
-      
-        <div class="col">
-      <div class="card forth-card bg-transparent">
-        <div class="card-body">
-          <h5 class="card-title">Wednesday</h5>
-          <p class="card-text"><strong>23°C</strong>/13°C</p>
-          <img src="https://img.icons8.com/color/50/000000/partly-cloudy-day--v2.png"/>
-        </div>
-      </div>
-    </div>
-
-      <div class="col">
-      <div class="card fifth-card bg-transparent">
-        <div class="card-body">
-          <h5 class="card-title">Thursday</h5>
-          <p class="card-text"><strong>24°C</strong>/12°C</p>
-          <img src="https://img.icons8.com/color/50/000000/partly-cloudy-day--v2.png"/>
-        </div>
-      </div>
-    </div>
-
-      <div class="col">
-      <div class="card sixth-card bg-transparent">
-        <div class="card-body">
-          <h5 class="card-title">Friday</h5>
-          <p class="card-text"><strong>27°C</strong>/14°C</p>
-          <img src="https://img.icons8.com/color/50/000000/sun--v2.png"/>
-        </div>
-      </div>
-    </div>
-  </div>
+        
+          <div class="card otherForecast bg-transparent">
+          </div>
+        
+  
    </div>
   </div>
   <!-- OPEN SOURCE link -->

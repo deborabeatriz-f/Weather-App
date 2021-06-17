@@ -31,6 +31,8 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let icon = document.querySelector("#tempImg");
 
+  displayForecast();
+
   celciusTemperature = Math.round(response.data.main.temp);
 
   temperature.innerHTML = celciusTemperature;
@@ -81,23 +83,6 @@ function searchCityWeather(event) {
 let submitCity = document.querySelector("#mainSearch");
 submitCity.addEventListener("submit", searchCityWeather);
 
-function searchLocation(position) {
-  let apiKey = "4620cdf98d4514231f7fef13652555c7";
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let units = "metric";
-  let apiEndPoint = `https://api.openweathermap.org/data/2.5/weather`;
-  let apiUrl = `${apiEndPoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(searchWeather);
-}
-
-function currentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
-let currentLocationButton = document.querySelector("#locationButton");
-currentLocationButton.addEventListener("click", currentLocation);
-
 // TEMPERATURE - Celcius and Fahrenheit
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -121,3 +106,31 @@ let celciusLink = document.querySelector("#celciusTemp");
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
 let cecliusTemperature = null;
+
+// DISPLAY FORECAST - NEXT DAYS
+function displayForecast() {
+  let otherDays = document.querySelector(".otherForecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+      <div class="card bg-transparent">
+      <div class="card-body">
+          <h5 class="card-title">${day}</h5>
+          <p class="card-text">
+            <span class="maxTemp">
+              <strong>22°C
+              </strong></span>
+              <span class="minimTemp">/13°C
+              </span></p>
+          <img src="https://img.icons8.com/color/50/000000/partly-cloudy-day--v2.png"/>
+        </div>
+        </div>
+        </div>`;
+  });
+
+  otherDays.innerHTML = forecastHTML;
+}
+forecastHTML = forecastHTML + `</div>`;

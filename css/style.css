@@ -133,42 +133,7 @@ ul {
   font-weight: bold;
 }
 
-.first-card {
-  text-align: center;
-  color: #f99800;
-  font-family: "Newsreader", serif;
-  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
-}
-
-.second-card {
-  text-align: center;
-  color: #9096a1;
-  font-family: "Newsreader", serif;
-  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
-}
-
-.third-card {
-  text-align: center;
-  color: #9096a1;
-  font-family: "Newsreader", serif;
-  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
-}
-
-.forth-card {
-  text-align: center;
-  color: #9096a1;
-  font-family: "Newsreader", serif;
-  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
-}
-
-.fifth-card {
-  text-align: center;
-  color: #9096a1;
-  font-family: "Newsreader", serif;
-  box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
-}
-
-.sixth-card {
+.otherForecast {
   text-align: center;
   color: #9096a1;
   font-family: "Newsreader", serif;
