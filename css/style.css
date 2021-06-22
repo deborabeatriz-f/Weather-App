@@ -31,7 +31,12 @@ ul {
   font-family: "Newsreader", serif;
   margin: 10px 0px;
   box-shadow: 0px 15px 15px 0px rgba(100, 100, 100, 0.3);
-  background: linear-gradient(to bottom, #bbd6f8 0%, #fefefe 100%);
+  background: linear-gradient(
+    to bottom,
+    #bbd6f8 0%,
+    #fefefe 60%,
+    #f8dbdbdc 100%
+  );
 }
 
 #citySearch {
