@@ -26,7 +26,7 @@ ul {
   list-style-type: none;
 }
 
-#weather-app {
+.weatherApp {
   color: rgb(62, 60, 65);
   font-family: "Newsreader", serif;
   margin: 10px 0px;
@@ -98,11 +98,6 @@ ul {
   cursor: default;
 }
 
-#fahrenheitTemp {
-  text-decoration: none;
-  cursor: default;
-}
-
 #forecast {
   text-transform: capitalize;
 }
@@ -117,10 +112,6 @@ ul {
 
 #linkedin {
   width: 45px;
-}
-
-.active {
-  color: rgb(84, 82, 87);
 }
 
 .card-body {

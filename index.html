@@ -31,30 +31,20 @@
     />
     <!-- AXIOS -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <script
-      src="https://kit.fontawesome.com/26847e6c76.js"
-      crossorigin="anonymous"
-    ></script>
     <!-- CSS link-->
     <link rel="stylesheet" href="./css/style.css" />
-
-    <link
-      rel="shotcut icon"
-      href="https://img.icons8.com/color/48/000000/rainbow--v1.png"
-    />
     <title>Weather App</title>
   </head>
 
   <!-- PAGE CONTENT-->
   <body>
     <div class="container">
-      <div class="card main-card" id="weather-app">
+      <div class="card weatherApp main-card">
         <div class="card-body">
           <!-- MAIN: WEATHER OF THE DAY -->
           <h4>Search Weather Forecast</h4>
           <form class="my-4" id="mainSearch">
-            <input id="citySearch" type="text" placeholder="Search City" />
+            <input id="citySearch" type="text" placeholder="Search City" autocomplete="off"/>
             <input id="search" type="submit" value="Search" />
           </form>
           <div class="row">
@@ -76,10 +66,7 @@
                   <img id="tempImg" src="" />
                   <span id="theTemperature"> </span>
                   <span id="theDegree">
-                    <small>
-                      <a href="#" id="celciusTemp" class="active">°C</a> |
-                      <a href="#" id="fahrenheitTemp">°F</a>
-                    </small>
+                    <small>°C </small>
                   </span>
                 </h2>
               </div>
@@ -92,13 +79,9 @@
             </div>
           </div>
           <br />
-         <!-- WEATHER FORECAST NEXT DAYS -->
-     
-        
+         <!-- WEATHER FORECAST NEXT DAYS -->        
           <div class="card otherForecast bg-transparent">
           </div>
-        
-  
    </div>
   </div>
   <!-- OPEN SOURCE link -->
