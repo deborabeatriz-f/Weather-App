@@ -42,8 +42,7 @@ function displayForecast(response) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
-      <div class="card bg-transparent">
+        `<div class="col">
       <div class="card-body">
           <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
           <p class="card-text">
@@ -56,7 +55,6 @@ function displayForecast(response) {
             forecastDay.weather[0].icon
           }.png"
           alt=""/>
-        </div>
         </div>
         </div>`;
     }
