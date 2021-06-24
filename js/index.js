@@ -106,4 +106,4 @@ function searchCityWeather(event) {
 let submitCity = document.querySelector("#mainSearch");
 submitCity.addEventListener("submit", searchCityWeather);
 
-search("London");
+search("New York");
