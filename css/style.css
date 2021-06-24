@@ -43,7 +43,7 @@ ul {
   color: #737781e8;
   font-family: "Amiri", serif;
   font-style: italic;
-  font-size: 18px;
+  font-size: 14px;
   text-align: right;
   cursor: default;
   transition: all 200ms ease;
@@ -70,11 +70,6 @@ ul {
   color: rgba(116, 115, 117, 0.795);
   font-family: "Newsreader", serif;
   box-shadow: 0px 6px 6px 0px rgba(150, 152, 156, 0.3);
-}
-
-#languages {
-  text-align: right;
-  margin-left: 650px;
 }
 
 #citySearch {
