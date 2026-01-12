@@ -33,7 +33,9 @@ function formatDay(timestamp) {
 
 // DISPLAY FORECAST - NEXT DAYS
 function displayForecast(response) {
-  let forecast = response.data.daily;
+  let forecast = response.data.list.filter(function (forecastObject) {
+    return forecastObject.dt_txt.includes("12:00:00");
+  });
 
   let otherDays = document.querySelector(".otherForecast");
 
@@ -47,9 +49,11 @@ function displayForecast(response) {
           <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
           <p class="card-text">
             <span class="maxTemp">
-              <strong>${Math.round(forecastDay.temp.max)}°C
+              <strong>${Math.round(forecastDay.main.temp_max)}°C
               </strong></span>
-              <span class="minimTemp">/${Math.round(forecastDay.temp.min)}°C
+              <span class="minimTemp">/${Math.round(
+                forecastDay.main.temp_min
+              )}°C
               </span></p>
           <img src="./img/${forecastDay.weather[0].id}.png"
           alt=""/>
@@ -62,8 +66,8 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = "4620cdf98d4514231f7fef13652555c7";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&lang=pt_br&units=metric`;
+  let apiKey = CONFIG.API_KEY;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -92,7 +96,7 @@ function displayTemperature(response) {
 }
 
 function search(city) {
-  let apiKey = "4620cdf98d4514231f7fef13652555c7";
+  let apiKey = CONFIG.API_KEY;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=pt_br&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
