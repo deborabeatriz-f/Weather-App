@@ -44,12 +44,14 @@
       <div class="card weatherApp main-card">
         <div class="card-body">
           <!-- MAIN: WEATHER OF THE DAY -->
-          <h4>Search Weather Forecast 
-          <span>
-            <a href="./portuguese-index.html" class="language"> Portuguese /</a> 
-            <a href="./spanish-index.html" class="language" >Spanish </a>
-          </span>
-        </h4>
+          <h4>
+            <span data-i18n="searchTitle">Search Weather Forecast</span>
+            <span>
+              <a href="#" onclick="changeLanguage('en')" class="language">EN</a> | 
+              <a href="#" onclick="changeLanguage('pt')" class="language">PT</a> | 
+              <a href="#" onclick="changeLanguage('es')" class="language">ES</a>
+            </span>
+          </h4>
           <form class="my-4" id="mainSearch">
             <input id="citySearch" type="text" placeholder="City Name" autocomplete="off"/>
             <input id="search" type="submit" value="Search" />
@@ -79,8 +81,10 @@
             </div>
             <div class="col">
               <ul class="infos">
-                <li>Humidity: <span id="humidity"></span>%</li>
-                <li>Wind: <span id="wind"> </span>km/h</li>
+                <li>
+                  <span data-i18n="humidity">Humidity</span>: <span id="humidity"></span>%</li>
+                <li>
+                  <span data-i18n="wind">Wind</span>: <span id="wind"> </span>km/h</li>
               </ul>
             </div>
           </div>
@@ -104,6 +108,7 @@
     </div>
     <!-- JS file -->
      <script src="./js/config.js"></script>
+     <script src="./js/translations.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>

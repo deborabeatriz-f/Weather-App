@@ -1,3 +1,32 @@
+// GLOBAL LANGUAGE VARIABLE - English Default
+let currentLanguage = "en";
+
+// FUNCTION TO CHANGE LANGUAGE
+function changeLanguage(lang) {
+  currentLanguage = lang;
+
+  // Updates html texts
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.getAttribute("data-i18n");
+    if (translations[lang][key]) {
+      element.innerText = translations[lang][key];
+    }
+  });
+
+  // Updates inputs
+  let cityInput = document.getElementById("citySearch");
+  let searchBtn = document.getElementById("search");
+
+  if (cityInput) cityInput.placeholder = translations[lang].searchPlaceholder;
+  if (searchBtn) searchBtn.value = translations[lang].searchButton;
+
+  // Upload forecast to translate API and dates
+  let cityElement = document.querySelector("#theCity");
+  if (cityElement.innerHTML) {
+    search(cityElement.innerHTML);
+  }
+}
+
 // DATE and TIME
 function formatDate(timestamp) {
   let now = new Date(timestamp);
@@ -10,15 +39,7 @@ function formatDate(timestamp) {
     minute = `0${minute}`;
   }
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = translations[currentLanguage].days;
   let day = days[now.getDay()];
   return `${day} ${hour}:${minute}`;
 }
@@ -26,7 +47,7 @@ function formatDate(timestamp) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = translations[currentLanguage].shortDays;
 
   return days[day];
 }
@@ -67,7 +88,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = CONFIG.API_KEY;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric&lang=${currentLanguage}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -97,7 +118,7 @@ function displayTemperature(response) {
 
 function search(city) {
   let apiKey = CONFIG.API_KEY;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=${currentLanguage}`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
