@@ -1,6 +1,9 @@
 const translations = {
   en: {
     searchTitle: "Search Weather Forecast",
+    langEn: "English",
+    langPt: "Portuguese",
+    langEs: "Spanish",
     searchPlaceholder: "City Name",
     searchButton: "Search",
     humidity: "Humidity",
@@ -19,6 +22,9 @@ const translations = {
   },
   pt: {
     searchTitle: "Buscar Previsão do Tempo",
+    langEn: "Inglês",
+    langPt: "Português",
+    langEs: "Espanhol",
     searchPlaceholder: "Nome da Cidade",
     searchButton: "Buscar",
     humidity: "Umidade",
@@ -37,6 +43,9 @@ const translations = {
   },
   es: {
     searchTitle: "Buscar Pronóstico del Tiempo",
+    langEn: "Inglés",
+    langPt: "Portugués",
+    langEs: "Español",
     searchPlaceholder: "Nombre de la Ciudad",
     searchButton: "Buscar",
     humidity: "Humedad",
