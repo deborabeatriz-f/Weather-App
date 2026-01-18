@@ -1,11 +1,19 @@
-// GLOBAL LANGUAGE VARIABLE - English Default
+// Language
 let currentLanguage = "en";
 
-// FUNCTION TO CHANGE LANGUAGE
 function changeLanguage(lang) {
   currentLanguage = lang;
 
-  // Updates html texts
+  document.querySelectorAll(".language-links button").forEach((btn) => {
+    btn.classList.remove("active-lang");
+  });
+
+  const activeBtn = document.getElementById(`btn-${lang}`);
+  if (activeBtn) {
+    activeBtn.classList.add("active-lang");
+  }
+
+  // Updates HTML Texts
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
     if (translations[lang][key]) {
@@ -13,21 +21,21 @@ function changeLanguage(lang) {
     }
   });
 
-  // Updates inputs
+  // Updates Inputs
   let cityInput = document.getElementById("citySearch");
   let searchBtn = document.getElementById("search");
 
   if (cityInput) cityInput.placeholder = translations[lang].searchPlaceholder;
   if (searchBtn) searchBtn.value = translations[lang].searchButton;
 
-  // Upload forecast to translate API and dates
+  // Upload Forecast To Translate API and Dates
   let cityElement = document.querySelector("#theCity");
   if (cityElement.innerHTML) {
     search(cityElement.innerHTML);
   }
 }
 
-// DATE and TIME
+// Date and Time
 function formatDate(timestamp) {
   let now = new Date(timestamp);
   let hour = now.getHours();
@@ -52,7 +60,7 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-// DISPLAY FORECAST - NEXT DAYS
+// Display Forecast - Next Days
 function displayForecast(response) {
   let forecast = response.data.list.filter(function (forecastObject) {
     return forecastObject.dt_txt.includes("12:00:00");
@@ -92,7 +100,7 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-// DISPLAY CITY & TEMPERATURE
+// Display City & Temperature
 function displayTemperature(response) {
   let temperature = document.querySelector("#theTemperature");
   let city = document.querySelector("#theCity");
@@ -116,19 +124,58 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
+function showErrorToast() {
+  const toast = document.getElementById("errorToast");
+
+  toast.innerText =
+    translations[currentLanguage].cityNotFound || "City not found";
+
+  toast.className = "toast-notification show";
+
+  setTimeout(function () {
+    toast.className = "toast-notification";
+  }, 3000);
+}
+
 function search(city) {
   let apiKey = CONFIG.API_KEY;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=${currentLanguage}`;
-  axios.get(apiUrl).then(displayTemperature);
+
+  axios
+    .get(apiUrl)
+    .then(displayTemperature)
+    .catch(function (error) {
+      showErrorToast();
+    });
 }
 
 function searchCityWeather(event) {
   event.preventDefault();
   let searchCity = document.querySelector("#citySearch");
-  search(searchCity.value);
+
+  if (searchCity.value) {
+    search(searchCity.value);
+    searchCity.value = "";
+  }
 }
 
 let submitCity = document.querySelector("#mainSearch");
 submitCity.addEventListener("submit", searchCityWeather);
 
 search("New York");
+
+// Background Theme
+const themeToggle = document.getElementById("themeToggle");
+const sunIcon = document.getElementById("sunIcon");
+const moonIcon = document.getElementById("moonIcon");
+
+themeToggle.addEventListener("change", function () {
+  document.body.classList.toggle("bg-theme-1");
+  document.body.classList.toggle("bg-theme-2");
+
+  sunIcon.classList.toggle("hidden");
+  moonIcon.classList.toggle("hidden");
+});
+
+// English Default
+changeLanguage("en");
