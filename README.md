@@ -28,9 +28,9 @@ A responsive weather dashboard originally built 5 years ago and recently **refac
 
 - OpenWeatherMap API - Source for weather data (migrated to the 5-Day Forecast endpoint).
 
-## Refactoring Highlights (2025/2026)
+## Refactoring Highlights (2026)
 
-This project was revisited to improve code quality, security, and maintainability:
+This project was revisited to improve code quality, security, design and maintainability:
 
 - API Migration: Updated from the deprecated "One Call API" to the free "5 Day / 3 Hour Forecast" endpoint, implementing custom filtering logic in JavaScript.
 
@@ -38,4 +38,4 @@ This project was revisited to improve code quality, security, and maintainabilit
 
 - Security: Implemented config.js and .gitignore patterns to prevent API Key exposure on GitHub.
 
-- Visuals: Updated the weather icon set to match specific API condition codes.
+- Visuals: Redesigned the interface with a modern, transparent aesthetic. Added interactive elements like a Dark Mode switch, hover effects, and distinct toast notifications for error handling, replacing standard browser alerts. Also updated the weather icon set to match specific API condition codes.
