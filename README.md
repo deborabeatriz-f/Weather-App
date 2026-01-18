@@ -1,6 +1,8 @@
 # Weather App (Vanilla JS)
 
-A responsive weather dashboard originally built 5 years ago and recently completely refactored to meet modern web development standards. It provides real-time weather data and a 5-day forecast for cities worldwide, featuring multi-language support.
+A responsive weather dashboard originally built 5 years ago and recently **refactored**. It provides real-time weather data and a 5-day forecast for cities worldwide, featuring multi-language support.
+
+> **Note:** The API Key is exposed in `config.js` intentionally for demo purposes (Free Tier), allowing this static site to function on GitHub Pages without a backend server.
 
 ## Key Features
 
