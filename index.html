@@ -4,111 +4,202 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--BOOTSTRAP-->
+    <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-    <!--GOOGLE FONTS-->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!--Font Awesome-->
     <link
-      href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- AXIOS -->
+    <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- CSS link-->
+    <!-- CSS Link-->
     <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/color/48/000000/rainbow--v1.png"
+    />
 
-    <link rel="shotcut icon" href="https://img.icons8.com/color/48/000000/rainbow--v1.png">
     <title>Weather App</title>
   </head>
 
-  <!-- PAGE CONTENT-->
-  <body>
+  <body class="bg-theme-1">
     <div class="container">
-      <div class="card weatherApp main-card">
-        <div class="card-body">
-          <!-- MAIN: WEATHER OF THE DAY -->
-          <h4>
-            <span data-i18n="searchTitle">Search Weather Forecast</span>
-            <span>
-              <a href="#" onclick="changeLanguage('en')" class="language">EN</a> | 
-              <a href="#" onclick="changeLanguage('pt')" class="language">PT</a> | 
-              <a href="#" onclick="changeLanguage('es')" class="language">ES</a>
-            </span>
-          </h4>
-          <form class="my-4" id="mainSearch">
-            <input id="citySearch" type="text" placeholder="City Name" autocomplete="off"/>
-            <input id="search" type="submit" value="Search" />
-          </form>
-          <div class="row">
-            <div class="col">
-              <h1 id="theCity"></h1>
-            </div>
-            <div class="col">
-              <ul class="infos">
-                <li id="date"></li>
-                <li id="forecast"></li>
-              </ul>
-            </div>
+      <div class="header-top">
+        <h4>
+          <span data-i18n="searchTitle">Search Weather Forecast</span>
+        </h4>
+
+        <!-- Theme options -->
+        <label for="themeToggle" class="theme-switch">
+          <input type="checkbox" id="themeToggle" class="theme-switch-input" />
+          <div class="theme-switch-track"></div>
+          <div class="theme-switch-thumb">
+            <svg
+              id="sunIcon"
+              style="width: 16px; height: 16px; color: #f59e0b"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              id="moonIcon"
+              class="hidden"
+              style="width: 16px; height: 16px; color: #afb7c3"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
           </div>
-          <div class="row">
-            <div class="col">
-              <div>
-                <h2>
-                  <span id="theTemperature"> </span>
-                  <span id="theDegree">
-                    <small>°C </small>
-                  </span>
-                   <img id="tempImg" src="" />
-                </h2>
-              </div>
-            </div>
-            <div class="col">
-              <ul class="infos">
-                <li>
-                  <span data-i18n="humidity">Humidity</span>: <span id="humidity"></span>%</li>
-                <li>
-                  <span data-i18n="wind">Wind</span>: <span id="wind"> </span>km/h</li>
-              </ul>
-            </div>
-          </div>
-          <br />
-         <!-- WEATHER FORECAST NEXT DAYS -->        
-          <div class="card otherForecast bg-transparent">
-          </div>
+        </label>
+      </div>
+
+      <!-- Language options -->
+      <div
+        class="language-links"
+        style="text-align: right; margin-bottom: 20px"
+      >
+        <button
+          id="btn-en"
+          onclick="changeLanguage('en')"
+          data-i18n="langEn"
+          style="border: none; background: none; cursor: pointer"
+        >
+          English
+        </button>
+        |
+        <button
+          id="btn-pt"
+          onclick="changeLanguage('pt')"
+          data-i18n="langPt"
+          style="border: none; background: none; cursor: pointer"
+        >
+          Portuguese
+        </button>
+        |
+        <button
+          id="btn-es"
+          onclick="changeLanguage('es')"
+          data-i18n="langEs"
+          style="border: none; background: none; cursor: pointer"
+        >
+          Spanish
+        </button>
+      </div>
+
+      <!-- Search City Weather -->
+      <form id="mainSearch" class="search-box-styled">
+        <i class="fas fa-map-marker-alt icon-location"></i>
+        <input
+          id="citySearch"
+          type="text"
+          placeholder="City Name"
+          autocomplete="off"
+        />
+        <button type="submit" id="searchBtn">
+          <i class="fas fa-search"></i>
+        </button>
+        <input id="search" type="submit" value="Search" style="display: none" />
+      </form>
+
+      <div class="weather-info-styled">
+        <h2 id="theCity">City Name</h2>
+        <p id="date" class="date-styled"></p>
+
+        <!-- Main: Weather of the day -->
+        <div class="weather-main">
+          <img id="tempImg" src="" alt="Weather Icon" class="main-icon" />
+          <div>
+            <h1 class="temp-big">
+              <span id="theTemperature">0</span>
+              <span class="degree">°C</span>
+            </h1>
+            <p id="forecast" class="weather-desc"></p>
           </div>
         </div>
-  <!-- OPEN SOURCE link -->
-  <h6> <small> Open-source code by Débora Beatriz Figueiró  
-  </small>
-  <a href="https://github.com/deborabeatriz-f/" target="_blank"> 
-    <img id="github" alt="github" src="https://img.icons8.com/bubbles/50/000000/github.png"/> 
-  </a>  
-  <a href="https://www.linkedin.com/in/d%C3%A9bora-figueir%C3%B3-449920207/" target="_blank">
-    <img id="linkedin" alt="linkedin" src="https://img.icons8.com/bubbles/50/000000/linkedin.png"/>
-  </a>
-  </h6>
+      </div>
+
+      <div class="weather-details-styled">
+        <div class="detail-box">
+          <i class="fas fa-water"></i>
+          <div class="text">
+            <span data-i18n="humidity">Humidity</span>
+            <span><span id="humidity">0</span>%</span>
+          </div>
+        </div>
+        <div class="detail-box">
+          <i class="fas fa-wind"></i>
+          <div class="text">
+            <span data-i18n="wind">Wind</span>
+            <span><span id="wind">0</span>km/h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weather forecast for the next days -->
+      <div class="otherForecast mt-4"></div>
+
+      <!-- Open Source Link -->
+      <div class="footer-styled mt-3">
+        <h6><small>Open-source code by Débora Beatriz</small></h6>
+        <div class="social-links">
+          <a href="https://github.com/deborabeatriz-f" target="_blank">
+            <img
+              id="github"
+              alt="github"
+              src="https://img.icons8.com/bubbles/50/000000/github.png"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/deborabeatrizfigueiro/"
+            target="_blank"
+          >
+            <img
+              id="linkedin"
+              alt="linkedin"
+              src="https://img.icons8.com/bubbles/50/000000/linkedin.png"
+            />
+          </a>
+        </div>
       </div>
     </div>
-    <!-- JS file -->
-     <script src="./js/config.js"></script>
-     <script src="./js/translations.js"></script>
+
+    <!-- Search Error Toast -->
+    <div id="errorToast" class="toast-notification"></div>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/translations.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>
