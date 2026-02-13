@@ -30,7 +30,7 @@ function changeLanguage(lang) {
 
   // Upload Forecast To Translate API and Dates
   let cityElement = document.querySelector("#theCity");
-  if (cityElement.innerHTML) {
+  if (cityElement.innerHTML && cityElement.innerHTML !== "City Name") {
     search(cityElement.innerHTML);
   }
 }
@@ -179,3 +179,4 @@ themeToggle.addEventListener("change", function () {
 
 // English Default
 changeLanguage("en");
+search("New York");
